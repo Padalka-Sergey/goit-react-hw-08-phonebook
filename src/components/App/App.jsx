@@ -5,7 +5,8 @@ import { ContactsListWrapper } from 'components/ContactsList/ContactsList';
 export function App() {
   return (
     <Container>
-      <h1>Privet</h1>
+      {/* delete */}
+      <h1>Privetdbnfgnfn</h1>
       <ContactForm />
       <ContactsListWrapper></ContactsListWrapper>
     </Container>
