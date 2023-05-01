@@ -9,9 +9,9 @@ import {
   getContactsValue,
   getIsLoading,
   getError,
-} from 'redux/selectors';
+} from 'redux/contacts/selectors';
 
-import { fetchContacts } from 'redux/contactsOperations';
+import { fetchContacts } from 'redux/contacts/contactsOperations';
 
 import {
   ContactsListBox,
