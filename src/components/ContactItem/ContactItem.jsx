@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import { ContactItem, Span, Btn } from './ContactItem.styled';
 
 import { useDispatch } from 'react-redux';
-import { deleteContact } from 'redux/contacts/contactsOperations';
+import { deleteContact } from 'redux/contacts/operations';
 
-export const ContactsItem = ({ name, phone, id }) => {
+export const ContactsItem = ({ name, number, id }) => {
   const dispatch = useDispatch();
 
   const onDelete = contactId => {
@@ -13,7 +13,7 @@ export const ContactsItem = ({ name, phone, id }) => {
 
   return (
     <ContactItem>
-      {name}: <Span>{phone}</Span>
+      {name}: <Span>{number}</Span>
       <Btn type="button" onClick={() => onDelete(id)}>
         Delete
       </Btn>
@@ -24,5 +24,5 @@ export const ContactsItem = ({ name, phone, id }) => {
 ContactsItem.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  phone: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
 };

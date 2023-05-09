@@ -11,7 +11,7 @@ import {
   getError,
 } from 'redux/contacts/selectors';
 
-import { fetchContacts } from 'redux/contacts/contactsOperations';
+import { fetchContacts } from 'redux/contacts/operations';
 
 import {
   ContactsListBox,
@@ -54,12 +54,12 @@ export const ContactsListWrapper = () => {
       {isLoading && !error && <b>Request in progress...</b>}
       <ContactItems>
         {/* {onDataContacts().map(({ name, phone, id }) => ( */}
-        {onFilterContacts().map(({ name, phone, id }) => (
+        {onFilterContacts().map(({ name, number, id }) => (
           <ContactsItem
             key={id}
             id={id}
             name={name}
-            phone={phone}
+            number={number}
           ></ContactsItem>
         ))}
       </ContactItems>

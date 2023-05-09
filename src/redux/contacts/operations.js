@@ -1,6 +1,9 @@
 // import * as phoneContactsAPI from 'services/phoneContacts-api';
-import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { createAsyncThunk } from '@reduxjs/toolkit';
+// import { setAuthHeader } from '../auth/operations';
+
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 
 // GET @ /contacts
 export const fetchContacts = createAsyncThunk(
@@ -20,7 +23,9 @@ export const addContact = createAsyncThunk(
   'contacts/addContact',
   async (items, thunkAPI) => {
     try {
-      const response = await axios.post('/contacts', { items });
+      const response = await axios.post('/contacts', items);
+
+      // setAuthHeader(response.data.token);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

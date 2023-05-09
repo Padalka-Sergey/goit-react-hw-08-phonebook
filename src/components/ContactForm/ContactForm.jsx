@@ -3,12 +3,12 @@ import { Input, Btn, Label, Form } from './ContactForm.styled';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { getContactsValue } from 'redux/contacts/selectors';
-import { addContact } from 'redux/contacts/contactsOperations';
+import { addContact } from 'redux/contacts/operations';
 
 export function ContactForm() {
   const dispatch = useDispatch();
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
 
   const contacts = useSelector(getContactsValue);
 
@@ -19,8 +19,8 @@ export function ContactForm() {
       case 'name':
         setName(value);
         break;
-      case 'phone':
-        setPhone(value);
+      case 'number':
+        setNumber(value);
         break;
       default:
         break;
@@ -36,12 +36,12 @@ export function ContactForm() {
       return true;
     }
 
-    dispatch(addContact({ name, phone }));
+    dispatch(addContact({ name, number }));
   };
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    if (formSubmitHandler({ name, phone })) {
+    if (formSubmitHandler({ name, number })) {
       return;
     }
     reset();
@@ -49,7 +49,7 @@ export function ContactForm() {
 
   const reset = () => {
     setName('');
-    setPhone('');
+    setNumber('');
   };
 
   return (
@@ -70,10 +70,10 @@ export function ContactForm() {
         Number
         <Input
           type="tel"
-          name="phone"
+          name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          value={phone}
+          value={number}
           onChange={handleChange}
           required
         />

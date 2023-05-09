@@ -52,3 +52,20 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
+
+//  В СЛАКЕ!!!!!!!!!!!
+// export const store = configureStore({
+//   reducer: {
+//     auth: persistReducer(authPersistConfig, authSlice.reducer),
+//     contacts: contactSlice.reducer,
+//     filter: filterSlice.reducer,
+//   },
+//   middleware: getDefaultMiddleware => [
+//     ...getDefaultMiddleware({
+//       serializableCheck: {
+//         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+//       },
+//     }),
+//   ],
+//   devTools: process.env.NODE_ENV === 'development',
+// });
