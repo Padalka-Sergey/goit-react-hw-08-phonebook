@@ -13,8 +13,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-// import { tasksReducer } from './tasks/slice';
-// import { authReducer } from './auth/slice';
+
 import { contactsSlice } from './contacts/contactsSlice';
 import { filterSlice } from './contacts/filterSlice';
 import { authReducer } from './auth/slice';
@@ -25,14 +24,6 @@ const middleware = getDefaultMiddleware =>
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
   });
-
-// const middleware = [
-//   ...getDefaultMiddleware({
-//     serializableCheck: {
-//       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-//     },
-//   }),
-// ];
 
 // Persisting token field from auth slice to localstorage
 const authPersistConfig = {

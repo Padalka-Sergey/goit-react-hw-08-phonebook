@@ -30,15 +30,3 @@ export default function ContactsPage() {
     </>
   );
 }
-
-/* <Container>
-  <ContactForm />
-  <ContactsListWrapper></ContactsListWrapper>
-</Container>; */
-
-//   <Helmet>
-//     <title>Your contacts</title>
-//   </Helmet>
-//   <TaskEditor />
-//   <div>{isLoading && 'Request in progress...'}</div>
-//   <TaskList />

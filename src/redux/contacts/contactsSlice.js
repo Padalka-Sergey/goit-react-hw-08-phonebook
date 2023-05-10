@@ -14,9 +14,6 @@ export const contactsSlice = createSlice({
   name: 'contacts',
   initialState: {
     items: [],
-    // ==================
-    // token: null,
-    // =====================
     isLoading: false,
     error: null,
   },
@@ -32,12 +29,8 @@ export const contactsSlice = createSlice({
       .addCase(addContact.pending, handlePending)
       .addCase(addContact.fulfilled, (state, action) => {
         state.isLoading = false;
-        // ======================
-        // state.token = action.payload.token;
-        // ========================
         state.error = null;
         state.items.push(action.payload);
-        // state.push(action.payload.items);
       })
       .addCase(addContact.rejected, handleRejected)
       .addCase(deleteContact.pending, handlePending)

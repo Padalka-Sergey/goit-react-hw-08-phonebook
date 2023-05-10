@@ -32,20 +32,11 @@ export const ContactsListWrapper = () => {
   }, [dispatch]);
 
   const onFilterContacts = () => {
-    // if (filterContactsState) {
     const normFilter = filterContactsState.toLowerCase();
     return contacts.filter(contactEl =>
       contactEl.name.toLowerCase().includes(normFilter)
     );
-    // }
   };
-
-  // const onDataContacts = () => {
-  //   if (filterContactsState) {
-  //     return onFilterContacts();
-  //   }
-  //   return contacts;
-  // };
 
   return (
     <ContactsListBox>
@@ -53,7 +44,6 @@ export const ContactsListWrapper = () => {
       <Filter />
       {isLoading && !error && <b>Request in progress...</b>}
       <ContactItems>
-        {/* {onDataContacts().map(({ name, phone, id }) => ( */}
         {onFilterContacts().map(({ name, number, id }) => (
           <ContactsItem
             key={id}

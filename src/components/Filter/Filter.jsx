@@ -17,8 +17,3 @@ export const Filter = () => {
     </Label>
   );
 };
-
-// import { getFilterContactsValue } from 'redux/selectors';
-// import { useSelector, useDispatch } from 'react-redux';
-// const filterContactsState = useSelector(getFilterContactsValue);
-// value={filterContactsState}
