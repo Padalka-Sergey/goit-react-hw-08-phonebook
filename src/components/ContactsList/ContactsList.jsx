@@ -39,20 +39,22 @@ export const ContactsListWrapper = () => {
   };
 
   return (
-    <ContactsListBox>
-      <ContactsListTitle>Contacts</ContactsListTitle>
-      <Filter />
-      {isLoading && !error && <b>Request in progress...</b>}
-      <ContactItems>
-        {onFilterContacts().map(({ name, number, id }) => (
-          <ContactsItem
-            key={id}
-            id={id}
-            name={name}
-            number={number}
-          ></ContactsItem>
-        ))}
-      </ContactItems>
-    </ContactsListBox>
+    contacts.length !== 0 && (
+      <ContactsListBox>
+        <ContactsListTitle>Contacts</ContactsListTitle>
+        <Filter />
+        {isLoading && !error && <b>Request in progress...</b>}
+        <ContactItems>
+          {onFilterContacts().map(({ name, number, id }) => (
+            <ContactsItem
+              key={id}
+              id={id}
+              name={name}
+              number={number}
+            ></ContactsItem>
+          ))}
+        </ContactItems>
+      </ContactsListBox>
+    )
   );
 };

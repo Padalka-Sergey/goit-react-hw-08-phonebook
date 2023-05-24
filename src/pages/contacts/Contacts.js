@@ -1,17 +1,21 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Helmet } from 'react-helmet';
+import {
+  useDispatch,
+  // useSelector
+} from 'react-redux';
+// import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 // import { TaskList } from 'components/TaskList/TaskList';
 // import { TaskEditor } from 'components/TaskEditor/TaskEditor';
 import { fetchContacts } from 'redux/contacts/operations';
-import { getIsLoading } from 'redux/contacts/selectors';
+// import { getIsLoading } from 'redux/contacts/selectors';
 import { Container } from 'components/Container/Container';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { ContactsListWrapper } from 'components/ContactsList/ContactsList';
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
-  const isLoading = useSelector(getIsLoading);
+  // const isLoading = useSelector(getIsLoading);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -24,7 +28,7 @@ export default function ContactsPage() {
       </Helmet>
       <Container>
         <ContactForm />
-        <div>{isLoading && 'Request in progress...'}</div>
+        {/* <div>{isLoading && 'Request in progress...'}</div> */}
         <ContactsListWrapper />
       </Container>
     </>
